@@ -1,0 +1,28 @@
+{
+  "cli": {
+    "version": ">= 15.0.15",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "channel": "development"
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview"
+    },
+    "production": {
+      "autoIncrement": true,
+      "buildArtifactPaths": [
+        "android/app/build/outputs/bundle/release/app-release.aab",
+        "android/app/build/outputs/apk/release/app-release.apk"
+      ],
+      "channel": "production"
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

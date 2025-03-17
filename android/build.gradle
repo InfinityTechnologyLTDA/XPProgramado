@@ -1,0 +1,37 @@
+buildscript {
+    ext {
+        cmakeVersion = "3.22.1" // Versão do CMake
+        ndkVersion = "23.1.7779620" // Versão do NDK
+        minSdk = 21
+        compileSdk = 33 
+        targetSdk = 33 
+        kotlinVersion = '2.0.21'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.13")
+        classpath("com.facebook.react:react-native-gradle-plugin") // Plugin do React Native
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21") // Plugin do Kotlin
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
+
+allprojects {
+    repositories {
+        // Repositórios necessários para o React Native
+        maven {
+            url(new File(['node', '--print', "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), '../android'))
+        }
+        maven {
+            url(new File(['node', '--print', "require.resolve('jsc-android/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim(), '../dist'))
+        }
+
+        google()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
+    }
+}

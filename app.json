@@ -10,19 +10,33 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#202020"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#202020"
+      },
+      "package": "com.infinitytechnology.xpprogramado",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "owner": "infinitytechnology",
+    "extra": {
+      "eas": {
+        "projectId": "0b34979e-d27b-433e-945f-4cfd73ad7d35"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/0b34979e-d27b-433e-945f-4cfd73ad7d35"
     }
   }
 }
